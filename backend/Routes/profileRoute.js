@@ -4,6 +4,6 @@ const {createprofile, getprofile, updateprofile} = require("../Controllers/profi
 const authMiddleware = require("../middleware/authmiddleware")
 
 router.post("/",authMiddleware,createprofile);
-router.get("/getprofile",authMiddleware,getprofile);
+router.get("/",authMiddleware,getprofile);
 router.put("/",authMiddleware,updateprofile)
 module.exports=router;
