@@ -12,7 +12,7 @@ const Login = () => {
   const [password, setpassword] = useState("")
   const checklogin= async ()=>{
   if(!email || !password) {
-    alert("please email ans password");
+    alert("please eenter email and password");
     return;
   }
   const res= await fetch(
