@@ -50,7 +50,7 @@ const login = async (req, res) => {
                 message: "Invalid password"
             });
         }
-        console.log(process.env.JWT_SECRET);
+        
         const token=jwt.sign(
             {id: user._id},
             process.env.JWT_SECRET,
