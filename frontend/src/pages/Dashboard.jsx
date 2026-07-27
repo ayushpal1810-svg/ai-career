@@ -25,8 +25,9 @@ const [loadingAnalysis, setLoadingAnalysis] = useState(false);
     description: "",
     techstack: "",
   });
-  const token = localStorage.getItem("token");
+  
   const fetchprofile = async () => {
+    const token = localStorage.getItem("token");
     console.log("fetchProfile called");
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/api/profile`, {
@@ -61,6 +62,7 @@ const [loadingAnalysis, setLoadingAnalysis] = useState(false);
   fetchprofile();
 }, []);
 const analyzeProfile = async () => {
+  
   try {
     setLoadingAnalysis(true);
 
@@ -122,6 +124,7 @@ const analyzeProfile = async () => {
 
     setProjects(updatedProjects);
   };
+  const token = localStorage.getItem("token");
   const logout = async()=>{
     localStorage.removeItem("token");
     navigate("/login");
