@@ -124,8 +124,9 @@ const analyzeProfile = async () => {
 
     setProjects(updatedProjects);
   };
-  const token = localStorage.getItem("token");
+  
   const logout = async()=>{
+    const token = localStorage.getItem("token");
     localStorage.removeItem("token");
     navigate("/login");
   };
