@@ -7,11 +7,14 @@ const mongoose= require('mongoose');
 
 require("dotenv").config();
 const authRoutes= require("./Routes/authRoute")
-const profileRoutes = require("./Routes/profileRoute")
+const profileRoutes = require("./Routes/profileRoute");
+const analyzeRoutes=require("./Routes/analyzeRoute")
+const { analyzeProfile } = require('./Controllers/analyzeController');
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
+app.use("/api/analyze", analyzeRoutes)
 
 
 mongoose

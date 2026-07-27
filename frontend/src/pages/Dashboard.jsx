@@ -17,6 +17,8 @@ const Dashboard = () => {
   const [skillstring, setskillstring] = useState("");
   const [projects, setProjects] = useState([]);
   const [isprofileexist, setisprofileexist] = useState(true);
+  const [analysis, setAnalysis] = useState(null);
+const [loadingAnalysis, setLoadingAnalysis] = useState(false);
 
   const [currentProject, setCurrentProject] = useState({
     title: "",
@@ -58,6 +60,37 @@ const Dashboard = () => {
   useEffect(() => {
   fetchprofile();
 }, []);
+const analyzeProfile = async () => {
+  try {
+    setLoadingAnalysis(true);
+
+    const token = localStorage.getItem("token");
+
+    const res = await fetch(
+      "http://localhost:3000/api/analyze",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.message);
+      return;
+    }
+
+    setAnalysis(data.analysis);
+
+  } catch (error) {
+    console.log(error);
+  } finally {
+    setLoadingAnalysis(false);
+  }
+};
   const addproject = () => {
     if (
       !currentProject.title ||
@@ -235,6 +268,39 @@ setisprofileexist(true);
       </div>
 
       <button onClick={() => saveprofile()}>save</button>
+      <button onClick={analyzeProfile}>
+  {loadingAnalysis ? "Analyzing..." : "Analyze Profile"}
+</button>
+{analysis && (
+  <div>
+
+    <h2>Strengths</h2>
+    {analysis.strengths.map((item,index)=>(
+      <p key={index}>✓ {item}</p>
+    ))}
+
+
+    <h2>Weaknesses</h2>
+    {analysis.weaknesses.map((item,index)=>(
+      <p key={index}>• {item}</p>
+    ))}
+
+
+    <h2>Missing Skills</h2>
+    {analysis.missingSkills.map((item,index)=>(
+      <p key={index}>• {item}</p>
+    ))}
+
+
+    <h2>Career Roadmap</h2>
+    {analysis.careerRoadmap.map((item,index)=>(
+      <p key={index}>
+        {index + 1}. {item}
+      </p>
+    ))}
+
+  </div>
+)}
       <button onClick={logout}>log out </button>
     </div>
   );
