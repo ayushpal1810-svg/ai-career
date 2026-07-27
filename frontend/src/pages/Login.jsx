@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import "./css/auth.css";
 
 
 
@@ -36,17 +37,59 @@ localStorage.setItem("token",data.token)
 navigate("/dashboard");
 }
   return (
-    <div>
-        <h2>enter email</h2>
-      <input type="text"  placeholder='email' value={email} onChange={(e)=>setemail(e.target.value)}/>
-      <h2>enter password</h2>
-      <input type="password" placeholder='password' value={password} onChange={(e)=>setpassword(e.target.value)}/>
-      <button onClick={checklogin}>login</button>
-      <button onClick={() => navigate("/register")}>
-  Register
-</button>
+  <div className="auth-container">
+
+    <div className="auth-card">
+
+      <h1>Welcome Back</h1>
+
+      <p className="auth-subtitle">
+        Login to your AI Career Platform
+      </p>
+
+
+      <label>Email</label>
+
+      <input
+        className="input-field"
+        type="text"
+        placeholder="Enter your email"
+        value={email}
+        onChange={(e)=>setemail(e.target.value)}
+      />
+
+
+      <label>Password</label>
+
+      <input
+        className="input-field"
+        type="password"
+        placeholder="Enter your password"
+        value={password}
+        onChange={(e)=>setpassword(e.target.value)}
+      />
+
+
+      <button 
+        className="login-btn"
+        onClick={checklogin}
+      >
+        Login
+      </button>
+
+
+      <button
+        className="register-btn"
+        onClick={() => navigate("/register")}
+      >
+        Create Account
+      </button>
+
+
     </div>
-  )
+
+  </div>
+)
 }
 
 export default Login

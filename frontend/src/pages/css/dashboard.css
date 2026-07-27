@@ -1,7 +1,397 @@
-h2{
-    color: gray;
-    background-color: azure ;
-    border-radius: 12;
-    border: 1px;
-    
+.dashboard-container {
+    min-height: 100vh;
+    background: #f5f7fb;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Header */
+
+.dashboard-header {
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+
+.dashboard-header h1 {
+    font-size: 32px;
+    color: #1f2937;
+}
+
+
+/* Profile Section */
+
+.profile-card {
+    background: white;
+    max-width: 700px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+
+.profile-card h2 {
+    margin-top: 25px;
+    margin-bottom: 12px;
+    color: #374151;
+    font-size: 20px;
+}
+
+
+/* Inputs */
+
+.input-field {
+
+    width: 100%;
+    padding: 13px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    margin-bottom: 12px;
+
+    box-sizing: border-box;
+}
+
+
+.input-field:focus {
+
+    outline: none;
+    border-color: #6366f1;
+
+}
+
+
+
+/* Buttons */
+
+button {
+
+    border: none;
+    cursor: pointer;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    transition: 0.2s;
+
+}
+
+
+button:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+/* Logout */
+
+.logout-btn {
+
+    background: #ef4444;
+    color:white;
+
+}
+
+
+/* Add project */
+
+.secondary-btn {
+
+    background:#e5e7eb;
+    color:#111827;
+
+    margin-top:10px;
+
+}
+
+
+/* Save button */
+
+.save-btn {
+
+    width:100%;
+
+    background:#2563eb;
+
+    color:white;
+
+    margin-top:25px;
+
+}
+
+
+/* Analyze button */
+
+.analyze-btn {
+
+    width:100%;
+
+    background:#7c3aed;
+
+    color:white;
+
+    margin-top:12px;
+
+}
+
+
+
+/* Projects */
+
+.project-list {
+
+    margin-top:20px;
+
+}
+
+
+.project-item {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#f3f4f6;
+
+    padding:12px 15px;
+
+    border-radius:10px;
+
+    margin-bottom:10px;
+
+}
+
+
+.project-item span {
+
+    font-weight:500;
+
+    color:#374151;
+
+}
+
+
+.delete-btn {
+
+    background:#ef4444;
+
+    color:white;
+
+    padding:8px 12px;
+
+}
+
+
+
+
+/* AI Analysis */
+
+.analysis-container {
+
+    max-width:900px;
+
+    margin:40px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+
+.analysis-card {
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:16px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+}
+
+
+.analysis-card h2 {
+
+    color:#4f46e5;
+
+    margin-bottom:15px;
+
+}
+
+
+.analysis-card p {
+
+    color:#4b5563;
+
+    line-height:1.6;
+
+    margin:10px 0;
+
+}
+
+
+
+/* Tablet */
+
+@media(max-width:900px){
+
+
+    .dashboard-container{
+
+        padding:25px;
+
+    }
+
+
+    .analysis-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+
+    .dashboard-container{
+
+        padding:15px;
+
+    }
+
+
+    .dashboard-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+
+    .dashboard-header h1{
+
+        font-size:24px;
+
+    }
+
+
+    .profile-card{
+
+        padding:20px;
+
+    }
+
+
+    .profile-card h2{
+
+        font-size:18px;
+
+    }
+
+
+    .input-field{
+
+        padding:11px;
+
+        font-size:14px;
+
+    }
+
+
+    button{
+
+        width:100%;
+
+    }
+
+
+    .logout-btn{
+
+        width:auto;
+
+    }
+
+
+    .project-item{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:12px;
+
+    }
+
+
+    .delete-btn{
+
+        width:auto;
+
+    }
+
+
+    .analysis-card{
+
+        padding:20px;
+
+    }
+
+
+}
+
+
+
+/* Small phones */
+
+@media(max-width:400px){
+
+
+    .dashboard-header h1{
+
+        font-size:21px;
+
+    }
+
+
+    .profile-card{
+
+        padding:15px;
+
+    }
+
+
+    .analysis-card p{
+
+        font-size:14px;
+
+    }
+
 }

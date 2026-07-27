@@ -171,139 +171,217 @@ setisprofileexist(true);
     }
   };
   return (
-    <div>
-      <h2>Education/Degree</h2>
+  <div className="dashboard-container">
+
+    <div className="dashboard-header">
+      <h1>AI Career Dashboard</h1>
+      <button className="logout-btn" onClick={logout}>
+        Logout
+      </button>
+    </div>
+
+
+    <div className="profile-card">
+
+      <h2>Education Details</h2>
+
       <input
+        className="input-field"
         type="text"
-        placeholder="education"
+        placeholder="Education/Degree"
         value={education}
         onChange={(e) => seteducation(e.target.value)}
       />
-      <h2>College</h2>
+
       <input
+        className="input-field"
         type="text"
         placeholder="College"
         value={college}
         onChange={(e) => setcollege(e.target.value)}
       />
 
-      <h2>Graduation Year</h2>
       <input
+        className="input-field"
         type="number"
         placeholder="Graduation Year"
         value={graduationyear}
         onChange={(e) => setgraduationyear(e.target.value)}
       />
 
-      <h2>Target Role</h2>
+
+      <h2>Career Goal</h2>
+
       <input
+        className="input-field"
         type="text"
         placeholder="Target Role"
         value={targetrole}
         onChange={(e) => settargetrole(e.target.value)}
       />
 
-      <h2>GitHub URL</h2>
+
+      <h2>Profiles</h2>
+
       <input
+        className="input-field"
         type="text"
         placeholder="GitHub URL"
         value={githuburl}
         onChange={(e) => setgithuburl(e.target.value)}
       />
 
-      <h2>LinkedIn URL</h2>
       <input
+        className="input-field"
         type="text"
         placeholder="LinkedIn URL"
         value={linkedinurl}
         onChange={(e) => setlinkedinurl(e.target.value)}
       />
-      <h2>skills</h2>
+
+
+      <h2>Skills</h2>
+
       <input
+        className="input-field"
         type="text"
-        placeholder="skills"
+        placeholder="React, Node, MongoDB"
         value={skillstring}
         onChange={(e) => setskillstring(e.target.value)}
       />
-      <h2>projects</h2>
+
+
+
+      <h2>Projects</h2>
+
       <input
-        type="text"
-        placeholder="title"
+        className="input-field"
+        placeholder="Project Title"
         value={currentProject.title}
         onChange={(e) =>
-          setCurrentProject({ ...currentProject, title: e.target.value })
+          setCurrentProject({...currentProject,title:e.target.value})
         }
       />
+
       <input
-        type="text"
-        placeholder="description"
+        className="input-field"
+        placeholder="Project Description"
         value={currentProject.description}
         onChange={(e) =>
-          setCurrentProject({ ...currentProject, description: e.target.value })
+          setCurrentProject({...currentProject,description:e.target.value})
         }
       />
+
       <input
-        type="text"
-        placeholder="techstack"
+        className="input-field"
+        placeholder="Tech Stack (React, Node)"
         value={currentProject.techstack}
         onChange={(e) =>
-          setCurrentProject({ ...currentProject, techstack: e.target.value })
+          setCurrentProject({...currentProject,techstack:e.target.value})
         }
       />
-      <button onClick={addproject}>add project</button>
-      <div>
-        {projects.map((project, index) => (
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-            }}
-            key={index}
-          >
-            <h3>{project.title}</h3>
-            <button onClick={() => deleteProject(index)}>X</button>
+
+
+      <button className="secondary-btn" onClick={addproject}>
+        Add Project
+      </button>
+
+
+      <div className="project-list">
+
+        {projects.map((project,index)=>(
+          <div className="project-item" key={index}>
+
+            <span>{project.title}</span>
+
+            <button
+              className="delete-btn"
+              onClick={()=>deleteProject(index)}
+            >
+              Delete
+            </button>
+
           </div>
-        ))}{" "}
+        ))}
+
       </div>
 
-      <button onClick={() => saveprofile()}>save</button>
-      <button onClick={analyzeProfile}>
-  {loadingAnalysis ? "Analyzing..." : "Analyze Profile"}
-</button>
-{analysis && (
-  <div>
 
-    <h2>Strengths</h2>
-    {analysis.strengths.map((item,index)=>(
-      <p key={index}>✓ {item}</p>
-    ))}
+      <button className="save-btn" onClick={saveprofile}>
+        Save Profile
+      </button>
 
 
-    <h2>Weaknesses</h2>
-    {analysis.weaknesses.map((item,index)=>(
-      <p key={index}>• {item}</p>
-    ))}
+      <button
+        className="analyze-btn"
+        onClick={analyzeProfile}
+      >
+        {loadingAnalysis ? "Analyzing..." : "Analyze Profile"}
+      </button>
+
+    </div>
 
 
-    <h2>Missing Skills</h2>
-    {analysis.missingSkills.map((item,index)=>(
-      <p key={index}>• {item}</p>
-    ))}
+
+    {analysis && (
+
+      <div className="analysis-container">
 
 
-    <h2>Career Roadmap</h2>
-    {analysis.careerRoadmap.map((item,index)=>(
-      <p key={index}>
-        {index + 1}. {item}
-      </p>
-    ))}
+        <div className="analysis-card">
+          <h2>Strengths</h2>
+
+          {analysis.strengths.map((item,index)=>(
+            <p key={index}>✓ {item}</p>
+          ))}
+
+        </div>
+
+
+
+        <div className="analysis-card">
+
+          <h2>Weaknesses</h2>
+
+          {analysis.weaknesses.map((item,index)=>(
+            <p key={index}>• {item}</p>
+          ))}
+
+        </div>
+
+
+
+        <div className="analysis-card">
+
+          <h2>Missing Skills</h2>
+
+          {analysis.missingSkills.map((item,index)=>(
+            <p key={index}>• {item}</p>
+          ))}
+
+        </div>
+
+
+
+        <div className="analysis-card">
+
+          <h2>Career Roadmap</h2>
+
+          {analysis.careerRoadmap.map((item,index)=>(
+            <p key={index}>
+              {index+1}. {item}
+            </p>
+          ))}
+
+        </div>
+
+
+      </div>
+
+    )}
 
   </div>
-)}
-      <button onClick={logout}>log out </button>
-    </div>
-  );
+);
 };
 
 export default Dashboard;

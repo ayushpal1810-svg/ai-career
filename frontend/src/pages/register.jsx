@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./css/auth.css";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -12,6 +13,12 @@ const Register = () => {
     if (!name || !email || !password) {
       alert("Please fill all fields.");
       return;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!emailPattern.test(email)) {
+  alert("Please enter a valid email");
+  return;
+}
     }
 
     try {
@@ -42,38 +49,71 @@ const Register = () => {
     }
   };
 
-  return (
-    <div>
-      <h2>Name</h2>
+ return (
+  <div className="auth-container">
+
+    <div className="auth-card">
+
+      <h1>Create Account</h1>
+
+      <p className="auth-subtitle">
+        Join AI Career Platform
+      </p>
+
+
+      <label>Name</label>
+
       <input
+        className="input-field"
         type="text"
-        placeholder="Name"
+        placeholder="Enter your name"
         value={name}
-        onChange={(e) => setname(e.target.value)}
+        onChange={(e)=>setname(e.target.value)}
       />
 
-      <h2>Email</h2>
+
+      <label>Email</label>
+
       <input
+        className="input-field"
         type="email"
-        placeholder="Email"
+        placeholder="Enter your email"
         value={email}
-        onChange={(e) => setemail(e.target.value)}
+        onChange={(e)=>setemail(e.target.value)}
       />
 
-      <h2>Password</h2>
+
+      <label>Password</label>
+
       <input
+        className="input-field"
         type="password"
-        placeholder="Password"
+        placeholder="Create password"
         value={password}
-        onChange={(e) => setpassword(e.target.value)}
+        onChange={(e)=>setpassword(e.target.value)}
       />
 
-      <br />
-      <br />
 
-      <button onClick={registerUser}>Register</button>
+      <button
+        className="register-btn"
+        onClick={registerUser}
+      >
+        Register
+      </button>
+
+
+      <button
+        className="login-btn"
+        onClick={() => navigate("/login")}
+      >
+        Already have an account? Login
+      </button>
+
+
     </div>
-  );
+
+  </div>
+);
 };
 
 export default Register;
