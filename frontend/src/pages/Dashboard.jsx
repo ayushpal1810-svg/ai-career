@@ -29,7 +29,7 @@ const [loadingAnalysis, setLoadingAnalysis] = useState(false);
   const fetchprofile = async () => {
     console.log("fetchProfile called");
     try {
-      const res = await fetch("http://localhost:3000/api/profile", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/profile`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -67,7 +67,7 @@ const analyzeProfile = async () => {
     const token = localStorage.getItem("token");
 
     const res = await fetch(
-      "http://localhost:3000/api/analyze",
+      `${import.meta.env.VITE_API_URL}/api/analyze`,
       {
         method: "POST",
         headers: {
@@ -134,7 +134,7 @@ const analyzeProfile = async () => {
     try {
         const token = localStorage.getItem("token");
         const res=await fetch(
-            "http://localhost:3000/api/profile",{
+            `${import.meta.env.VITE_API_URL}/api/profile`,{
                 method: isprofileexist? "PUT":"POST",
                 headers:{
                     
