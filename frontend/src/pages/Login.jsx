@@ -34,6 +34,8 @@ alert(data.message);
 return
 }
 localStorage.setItem("token",data.token)
+
+console.log("Navigating to dashboard");
 navigate("/dashboard");
 }
   return (
