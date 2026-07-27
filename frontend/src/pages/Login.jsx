@@ -42,6 +42,9 @@ navigate("/dashboard");
       <h2>enter password</h2>
       <input type="password" placeholder='password' value={password} onChange={(e)=>setpassword(e.target.value)}/>
       <button onClick={checklogin}>login</button>
+      <button onClick={() => navigate("/register")}>
+  Register
+</button>
     </div>
   )
 }
