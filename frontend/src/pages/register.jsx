@@ -17,7 +17,7 @@ const Register = () => {
 
 if (!emailPattern.test(email)) {
   alert("Please enter a valid email");
-  return;
+  return; 
 }
     }
 
