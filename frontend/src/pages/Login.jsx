@@ -33,10 +33,8 @@ if(!res.ok){
 alert(data.message);
 return
 }
-localStorage.setItem("token",data.token)
-
-console.log("Navigating to dashboard");
-navigate("/dashboard");
+localStorage.setItem("token", data.token);
+window.location.href = "/dashboard";
 }
   return (
   <div className="auth-container">
