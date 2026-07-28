@@ -13,7 +13,7 @@ const Login = () => {
   const [password, setpassword] = useState("")
   const checklogin= async ()=>{
   if(!email || !password) {
-    alert("please eenter email and password");
+    alert("please enter email and password");
     return;
   }
   const res= await fetch(
@@ -34,7 +34,7 @@ alert(data.message);
 return
 }
 localStorage.setItem("token", data.token);
-window.location.href = "/dashboard";
+window.location.replace("/dashboard");
 }
   return (
   <div className="auth-container">
