@@ -8,12 +8,7 @@ The platform uses Generative AI to identify strengths, weaknesses, missing skill
 
 ## Live Demo
 
-Frontend:
-https://your-vercel-link.vercel.app
-
-Backend:
-https://your-render-backend-url.onrender.com
-
+https://ai-career-sooty-delta.vercel.app/login
 ---
 
 # Features
