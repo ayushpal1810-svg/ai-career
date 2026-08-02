@@ -64,6 +64,7 @@ const [loadingAnalysis, setLoadingAnalysis] = useState(false);
 const analyzeProfile = async () => {
   
   try {
+    await saveprofile();
     setLoadingAnalysis(true);
 
     const token = localStorage.getItem("token");
@@ -81,7 +82,7 @@ const analyzeProfile = async () => {
     const data = await res.json();
 
     if (!res.ok) {
-      alert("gemini server is overloaded");
+      alert("gemini server is overloaded try again later");
       return;
     }
 
