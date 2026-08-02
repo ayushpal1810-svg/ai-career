@@ -313,6 +313,10 @@ npm run dev
 
 ---
 
+# Screenshot
+<img width="1470" height="956" alt="Screenshot 2026-08-02 at 1 07 46 PM" src="https://github.com/user-attachments/assets/5383e9ab-d10a-411b-93ea-54698f87fd1b" /><img width="1470" height="956" alt="Screenshot 2026-08-02 at 1 07 27 PM" src="https://github.com/user-attachments/assets/bcfa729f-ecae-49e6-8ac4-d45f51775248" />
+<img width="1470" height="956" alt="Screenshot 2026-08-02 at 1 07 41 PM" src="https://github.com/user-attachments/assets/fb5613c8-376a-437d-b4aa-3c870f288660" />
+
 
 # Future Improvements
 
