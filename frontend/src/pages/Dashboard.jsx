@@ -81,7 +81,7 @@ const analyzeProfile = async () => {
     const data = await res.json();
 
     if (!res.ok) {
-      alert(data.message);
+      alert("gemini server is overloaded");
       return;
     }
 
